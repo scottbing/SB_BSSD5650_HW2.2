@@ -11,7 +11,7 @@ class Dog: virtual public Animal {
 public:
     
     Dog(Flys* flightType) {
-        this->setFy(flightType);
+        this->setFly(flightType);
     }
     
     Dog(Walks* walkingType) {
