@@ -42,6 +42,7 @@ public:
     
 private:
     Flys* _flyingType;
+    Walks* _walkingType;
     std::string _food;
 };
 
