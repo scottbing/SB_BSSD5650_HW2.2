@@ -5,12 +5,17 @@
 #include <iostream>
 #include "Animal.hpp"
 #include "Flys.hpp"
+#include "Walks.hpp"
 
 class Duck:public Animal {
 public:
 	
 	Duck(Flys* flightType) {
-        this->setFy(flightType);
+        this->setFly(flightType);
+    }
+    
+    Duck(Walks* walkingType) {
+        this->setWalk(walkingType);
     }
     
     void speak(){std::cout << "Ate Corn" << std::endl;};

@@ -5,12 +5,17 @@
 #include <iostream>
 #include "Animal.hpp"
 #include "Flys.hpp"
+#include "Walks.hpp"
 
 class Dog: virtual public Animal {
 public:
     
     Dog(Flys* flightType) {
         this->setFy(flightType);
+    }
+    
+    Dog(Walks* walkingType) {
+        this->setWalk(walkingType);
     }
     
     void speak() override {std::cout << "Woof" << std::endl; };
