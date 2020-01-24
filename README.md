@@ -1,0 +1,2 @@
+# SB_BSSD5650_HW2.2
+BSSD5560 Patterns Homework 2.2
