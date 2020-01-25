@@ -84,7 +84,7 @@ int main(int argc, const char * argv[]) {
  		std::cout << "Would you like to create another animal? (Y|y/N|n)" << std::endl;
   		std::cin >> answer; 
   
-  		if (toupper(answer) == 'N')
+  		if (char response = toupper(answer) == 'N')
   		break;
  	}   
  
