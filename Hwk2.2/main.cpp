@@ -1,12 +1,17 @@
 /* main.cpp */
 #include <iostream>
 
+// Strategies
 #include "Animal.hpp"
 #include "Flys.hpp"
 #include "Walks.hpp"
 
+// Creatures
 #include "Duck.hpp"
 #include "Dog.hpp"
+#include "Goldfish.hpp"
+#include "Snake.hpp"
+#include "Bat.hpp"
 
 int main(int argc, const char * argv[]) {
 
@@ -24,12 +29,27 @@ int main(int argc, const char * argv[]) {
     std::cout <<  "Duck is " << grain->tryFlight() << std::endl;
     std::cout <<  "while he " << grain->eat() << std::endl;
     
-    // Ducky the Duck
-    Animal* ducky = new Duck(new Bipedal());
-    ducky->setFood("bread");
+    // Slither the Snake
+    Animal* slither = new Snake(new CantFly());
+    slither->setFood("bread");
     
-    std::cout <<  "Duck is " << ducky->tryWalking() << std::endl;
-    std::cout <<  "while he " << ducky->eat() << std::endl;
+    std::cout <<  "Snake is " << slither->tryWalking() << std::endl;
+    std::cout <<  "while he " << slither->eat() << std::endl;
+    
+   // Goldy the Goldfish
+    Animal* goldy = new Goldfish(new CantFly());
+    goldy->setFood("fishfood");
+    
+    std::cout <<  "Goldfish is " << goldy->tryWalking() << std::endl;
+    std::cout <<  "while he " << goldy->eat() << std::endl;
+    
+    // Buddy the Bat
+    Animal* buddy = new Bat(new CanFly());
+    buddy->setFood("insects");
+    
+    std::cout <<  "Bat is " << buddy->tryWalking() << std::endl;
+    std::cout <<  "while he " << buddy->eat() << std::endl;
+    
     
     delete riblet;
     delete grain;
