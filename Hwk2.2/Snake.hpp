@@ -7,7 +7,7 @@
 #include "Flys.hpp"
 #include "Walks.hpp"
 
-class Snake:public Animal {
+class Snake: virtual public Animal {
 public:
 
 	Snake(Flys* flightType) {
