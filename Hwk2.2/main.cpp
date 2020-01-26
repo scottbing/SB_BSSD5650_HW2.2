@@ -21,7 +21,7 @@ int main(int argc, const char * argv[]) {
 	std::string animals[5] = { "Dog", "Duck", "Snake", "Goldfish", "Bat" }; 
 	std::string foods[5] = { "mice", "corn", "filet mignon", "fishfood", "insects" }; 
 
-	// Riblet the Dog
+	/*// Riblet the Dog
     Animal* riblet = new Dog(new CantFly());
     Animal* riblet2 = new Dog(new Quadpedal());
     riblet->setFood("filet mignon");
@@ -69,11 +69,11 @@ int main(int argc, const char * argv[]) {
     std::cout <<  "Bat is " << buddy->tryFlight() << std::endl;
     std::cout << buddy2->tryWalking() << std::endl;
     std::cout <<  "while he " << buddy->eat() << std::endl;
-    std::cout.put('\n');
+    std::cout.put('\n');*/
     
     // looping variables
     int creature, legs, food;
-    char flies, answer;
+    char flies, answer, fliesResponse;
     std::string object, dinner;
     
     // main.hpp loop
@@ -135,8 +135,10 @@ int main(int argc, const char * argv[]) {
    		std::cout << "Y|y/N|n" << std::endl;
   		std::cin >> flies; 
   		
+  		fliesResponse = toupper(flies);
+  		
   		// test input
-  		if ((flies == 'Y') || (flies == 'N')) {
+  		if ((fliesResponse == 'Y') || (fliesResponse == 'N')) {
   				break;
 			  }
 			else {
@@ -144,9 +146,177 @@ int main(int argc, const char * argv[]) {
 				std::cout << "Invalid selection, please try again" << std::endl;
 			}
 		 }
+		 
   
   	
-  		//Do processing here...
+  		// Handle flying capability
+  		if (fliesResponse == 'Y') {
+  			switch (creature) {
+  				case 0: { Animal* riblet3 = new Dog(new CanFly());
+  					std::cout <<  "Dog is " << riblet3->tryFlight() << std::endl;
+					break;
+				  }
+  				
+  				case 1: { Animal* flatfoot3 = new Duck(new CanFly());
+  					std::cout <<  "Duck is " << flatfoot3->tryFlight() << std::endl;
+					break;
+				  }
+
+  				case 2: { Animal* slither3 = new Snake(new CanFly());
+  					std::cout <<  "Snake is " << slither3->tryFlight() << std::endl;
+					break;
+				  } 
+  				
+  				case 3: { Animal* goldy3 = new Goldfish(new CanFly());
+  					std::cout <<  "Goldfish is " << goldy3->tryFlight() << std::endl;
+					break;
+				  } 
+				
+  				case 4: { Animal* buddy3 = new Bat(new CanFly());
+  					std::cout <<  "Bat is " << buddy3->tryFlight() << std::endl;
+					break;
+				  } 
+  				
+  				default: {
+					break;
+				  }
+			  }
+		  } else {
+		  	switch (creature) {
+  				case 0: { Animal* riblet3 = new Dog(new CantFly());
+  					std::cout <<  "Dog is " << riblet3->tryFlight() << std::endl;
+					break;
+				  }
+  				
+  				case 1: { Animal* flatfoot3 = new Duck(new CantFly());
+  					std::cout <<  "Duck is " << flatfoot3->tryFlight() << std::endl;
+					break;
+				  }
+
+  				case 2: { Animal* slither3 = new Snake(new CantFly());
+  					std::cout <<  "Snake is " << slither3->tryFlight() << std::endl;
+					break;
+				  } 
+  				
+  				case 3: { Animal* goldy3 = new Goldfish(new CantFly());
+  					std::cout <<  "Goldfish is " << goldy3->tryFlight() << std::endl;
+					break;
+				  } 
+				
+  				case 4: { Animal* buddy3 = new Bat(new CantFly());
+  					std::cout <<  "Bat is " << buddy3->tryFlight() << std::endl;
+					break;
+				  } 
+  				
+  				default: {
+					break;
+				  }
+			  }
+		  	
+		  }
+		  
+		  
+		// Handle walking capability
+  		if (legs == 0) {  // no legs
+  			switch (creature) {
+  				case 0: { Animal* riblet4 = new Dog(new CantWalk());
+  					std::cout <<  "Dog is " << riblet4->tryWalking() << std::endl;
+					break;
+				  }
+  				
+  				case 1: { Animal* flatfoot4 = new Duck(new CantWalk());
+  					std::cout <<  "Duck is " << flatfoot4->tryWalking() << std::endl;
+					break;
+				  }
+
+  				case 2: { Animal* slither4 = new Snake(new CantWalk());
+  					std::cout <<  "Snake is " << slither4->tryWalking() << std::endl;
+					break;
+				  } 
+  				
+  				case 3: { Animal* goldy4 = new Goldfish(new CantWalk());
+  					std::cout <<  "Goldfish is " << goldy4->tryWalking() << std::endl;
+					break;
+				  } 
+				
+  				case 4: { Animal* buddy4 = new Bat(new CantWalk());
+  					std::cout <<  "Bat is " << buddy4->tryWalking() << std::endl;
+					break;
+				  } 
+  				
+  				default: {
+					break;
+				  }
+			  }
+		  } else if (legs == 1) {  // Bipedal
+		  	switch (creature) {
+  				case 0: { Animal* riblet4 = new Dog(new Bipedal());
+  					std::cout <<  "Dog is " << riblet4->tryWalking() << std::endl;
+					break;
+				  }
+  				
+  				case 1: { Animal* flatfoot4 = new Duck(new Bipedal());
+  					std::cout <<  "Duck is " << flatfoot4->tryWalking() << std::endl;
+					break;
+				  }
+
+  				case 2: { Animal* slither4 = new Snake(new Bipedal());
+  					std::cout <<  "Snake is " << slither4->tryWalking() << std::endl;
+					break;
+				  } 
+  				
+  				case 3: { Animal* goldy4 = new Goldfish(new Bipedal());
+  					std::cout <<  "Goldfish is " << goldy4->tryWalking() << std::endl;
+					break;
+				  } 
+				
+  				case 4: { Animal* buddy4 = new Bat(new Bipedal());
+  					std::cout <<  "Bat is " << buddy4->tryWalking() << std::endl;
+					break;
+				  } 
+  				
+  				default: {
+					break;
+				  }
+			  }
+		  	
+		  } else if (legs == 2) {  // Quadpedal
+		  	switch (creature) {
+  				case 0: { Animal* riblet4 = new Dog(new Quadpedal());
+  					std::cout <<  "Dog is " << riblet4->tryWalking() << std::endl;
+					break;
+				  }
+  				
+  				case 1: { Animal* flatfoot4 = new Duck(new Quadpedal());
+  					std::cout <<  "Duck is " << flatfoot4->tryWalking() << std::endl;
+					break;
+				  }
+
+  				case 2: { Animal* slither4 = new Snake(new Quadpedal());
+  					std::cout <<  "Snake is " << slither4->tryWalking() << std::endl;
+					break;
+				  } 
+  				
+  				case 3: { Animal* goldy4 = new Goldfish(new Quadpedal());
+  					std::cout <<  "Goldfish is " << goldy4->tryWalking() << std::endl;
+					break;
+				  } 
+				
+  				case 4: { Animal* buddy4 = new Bat(new Quadpedal());
+  					std::cout <<  "Bat is " << buddy4->tryWalking() << std::endl;
+					break;
+				  } 
+  				
+  				default: {
+					break;
+				  }
+			  }
+		  	
+		  }
+  		
+  		
+  		
+  		
  
  		std::cout << "Would you like to create another animal? (Y|y/N|n)" << std::endl;
   		std::cin >> answer; 
@@ -154,13 +324,18 @@ int main(int argc, const char * argv[]) {
   		if (char response = toupper(answer) == 'N')
   		break;
  	}   
- 
-	 // cleanup   
+   
+/*	 // cleanup   
 	delete riblet;
+	delete riblet2;
 	delete flatfoot;
+	delete flatfoot2;
 	delete slither;
+	delete slither2;
 	delete goldy;
+	delete goldy2;
 	delete buddy;
+	delete buddy2;*/
 	
 	return 0;
 }
