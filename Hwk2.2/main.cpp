@@ -53,17 +53,21 @@ int main(int argc, const char * argv[]) {
     
     // Goldy the Goldfish
     Animal* goldy = new Goldfish(new CantFly());
+    Animal* goldy2 = new Goldfish(new CantWalk());
     goldy->setFood("fishfood");
     
     std::cout <<  "Goldfish is " << goldy->tryFlight() << std::endl;
+    std::cout << goldy2->tryWalking() << std::endl;
     std::cout <<  "while he " << goldy->eat() << std::endl;
     std::cout.put('\n');
     
     // Buddy the Bat
     Animal* buddy = new Bat(new CanFly());
+    Animal* buddy2 = new Bat(new Quadpedal());
     buddy->setFood("insects");
     
     std::cout <<  "Bat is " << buddy->tryFlight() << std::endl;
+    std::cout << buddy2->tryWalking() << std::endl;
     std::cout <<  "while he " << buddy->eat() << std::endl;
     std::cout.put('\n');
     
