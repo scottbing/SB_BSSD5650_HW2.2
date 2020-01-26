@@ -20,8 +20,16 @@ int main(int argc, const char * argv[]) {
 	
 	std::string animals[5] = { "Dog", "Duck", "Snake", "Goldfish", "Bat" }; 
 	std::string foods[5] = { "mice", "corn", "filet mignon", "fishfood", "insects" }; 
+	
+	// animals
+	Animal* riblet;		// Dog
+	Animal* flatfoot;	// Duck
+	Animal* slither;	// Snake
+	Animal* goldy;		// Goldfish
+	Animal* buddy;		// Bat
 
-	// Riblet the Dog
+/*	// Riblet the Dog
+    //Animal* riblet = new Dog(new CantFly(), new Quadpedal());
     Animal* riblet = new Dog(new CantFly(), new Quadpedal());
     riblet->setFood("filet mignon");
     
@@ -66,8 +74,8 @@ int main(int argc, const char * argv[]) {
     std::cout << buddy->tryWalking() << std::endl;
     std::cout <<  "while he " << buddy->eat() << std::endl;
     std::cout.put('\n');
-    
-    
+    */
+       
     // get inputs from user
     
     // looping variables
@@ -150,178 +158,218 @@ int main(int argc, const char * argv[]) {
 		 
   		// process inputs
   		std::cout.put('\n');
-  	
-  	/*	// Handle flying capability
-  		if (fliesResponse == 'Y') {
-  			switch (creature) {
-  				case 0: { Animal* riblet3 = new Dog(new CanFly());
-  					std::cout <<  "Dog is " << riblet3->tryFlight() << std::endl;
-					break;
-				  }
-  				
-  				case 1: { Animal* flatfoot3 = new Duck(new CanFly());
-  					std::cout <<  "Duck is " << flatfoot3->tryFlight() << std::endl;
-					break;
-				  }
-
-  				case 2: { Animal* slither3 = new Snake(new CanFly());
-  					std::cout <<  "Snake is " << slither3->tryFlight() << std::endl;
-					break;
-				  } 
-  				
-  				case 3: { Animal* goldy3 = new Goldfish(new CanFly());
-  					std::cout <<  "Goldfish is " << goldy3->tryFlight() << std::endl;
-					break;
-				  } 
-				
-  				case 4: { Animal* buddy3 = new Bat(new CanFly());
-  					std::cout <<  "Bat is " << buddy3->tryFlight() << std::endl;
-					break;
-				  } 
-  				
-  				default: {
-					break;
-				  }
-			  }
-		  } else {
-		  	switch (creature) {
-  				case 0: { Animal* riblet3 = new Dog(new CantFly());
-  					std::cout <<  "Dog is " << riblet3->tryFlight() << std::endl;
-					break;
-				  }
-  				
-  				case 1: { Animal* flatfoot3 = new Duck(new CantFly());
-  					std::cout <<  "Duck is " << flatfoot3->tryFlight() << std::endl;
-					break;
-				  }
-
-  				case 2: { Animal* slither3 = new Snake(new CantFly());
-  					std::cout <<  "Snake is " << slither3->tryFlight() << std::endl;
-					break;
-				  } 
-  				
-  				case 3: { Animal* goldy3 = new Goldfish(new CantFly());
-  					std::cout <<  "Goldfish is " << goldy3->tryFlight() << std::endl;
-					break;
-				  } 
-				
-  				case 4: { Animal* buddy3 = new Bat(new CantFly());
-  					std::cout <<  "Bat is " << buddy3->tryFlight() << std::endl;
-					break;
-				  } 
-  				
-  				default: {
-					break;
-				  }
-			  }
-		  	
+  		
+  		switch (legs) {
+  			case 0: // no legs
+  					switch (creature ) {
+  						case 0: // Dog
+  								if (fliesResponse == 'Y') {
+  									riblet = new Dog(new CanFly(), new CantWalk());
+								} else {
+									riblet = new Dog(new CantFly(), new CantWalk());
+								}
+								std::cout <<  "Dog is " << riblet->tryFlight() << std::endl;
+    							std::cout << riblet->tryWalking() << std::endl;
+    							riblet->setFood(dinner);
+    							std::cout <<  "while he " << riblet->eat() << std::endl;
+								
+  								break;
+  						
+  						case 1: // Duck
+  								if (fliesResponse == 'Y') {
+  									flatfoot = new Duck(new CanFly(), new CantWalk());
+								} else {
+									flatfoot = new Duck(new CantFly(), new CantWalk());
+								}
+								std::cout <<  "Duck is " << flatfoot->tryFlight() << std::endl;
+    							std::cout << flatfoot->tryWalking() << std::endl;
+    							flatfoot->setFood(dinner);
+								std::cout <<  "while he " << flatfoot->eat() << std::endl;
+								
+  								break;
+  						
+  						case 2: // Snake
+  								if (fliesResponse == 'Y') {
+  									slither = new Snake(new CanFly(), new CantWalk());
+								} else {
+									slither = new Snake(new CantFly(), new CantWalk());
+								}
+								std::cout <<  "Snake is " << slither->tryFlight() << std::endl;
+    							std::cout << slither->tryWalking() << std::endl;
+    							slither->setFood(dinner);
+								std::cout <<  "while he " << slither->eat() << std::endl;
+    							
+  								break;
+  								
+  						case 3: // Goldfish
+  								if (fliesResponse == 'Y') {
+  									goldy = new Goldfish(new CanFly(), new CantWalk());
+								} else {
+									goldy = new Goldfish(new CantFly(), new CantWalk());
+								}
+								std::cout <<  "Goldfish is " << goldy->tryFlight() << std::endl;
+    							std::cout << goldy->tryWalking() << std::endl;
+    							goldy->setFood(dinner);
+								std::cout <<  "while he " << goldy->eat() << std::endl;
+    							
+  								break;
+  								
+  						case 4: // Bat
+  								if (fliesResponse == 'Y') {
+  									buddy = new Bat(new CanFly(), new CantWalk());
+								} else {
+									buddy = new Bat(new CantFly(), new CantWalk());
+								}
+								std::cout <<  "Bat is " << buddy->tryFlight() << std::endl;
+    							std::cout << buddy->tryWalking() << std::endl;
+    							buddy->setFood(dinner);
+								std::cout <<  "while he " << buddy->eat() << std::endl;
+    							
+  								break;
+					  }
+  					break;
+  			
+  			case 1:	// bipedal - two legs
+  					switch (creature ) {
+  						case 0: // Dog
+  								if (fliesResponse == 'Y') {
+  									riblet = new Dog(new CanFly(), new Bipedal());
+								} else {
+									riblet = new Dog(new CantFly(), new Bipedal());
+								}
+								std::cout <<  "Dog is " << riblet->tryFlight() << std::endl;
+    							std::cout << riblet->tryWalking() << std::endl;
+    							riblet->setFood(dinner);
+    							std::cout <<  "while he " << riblet->eat() << std::endl;
+								
+  								break;
+  						
+  						case 1: // Duck
+  								if (fliesResponse == 'Y') {
+  									flatfoot = new Duck(new CanFly(), new Bipedal());
+								} else {
+									flatfoot = new Duck(new CantFly(), new Bipedal());
+								}
+								std::cout <<  "Duck is " << flatfoot->tryFlight() << std::endl;
+    							std::cout << flatfoot->tryWalking() << std::endl;
+    							flatfoot->setFood(dinner);
+								std::cout <<  "while he " << flatfoot->eat() << std::endl;
+								
+  								break;
+  						
+  						case 2: // Snake
+  								if (fliesResponse == 'Y') {
+  									slither = new Snake(new CanFly(), new Bipedal());
+								} else {
+									slither = new Snake(new CantFly(), new Bipedal());
+								}
+								std::cout <<  "Snake is " << slither->tryFlight() << std::endl;
+    							std::cout << slither->tryWalking() << std::endl;
+    							slither->setFood(dinner);
+								std::cout <<  "while he " << slither->eat() << std::endl;
+    							
+  								break;
+  								
+  						case 3: // Goldfish
+  								if (fliesResponse == 'Y') {
+  									goldy = new Goldfish(new CanFly(), new Bipedal());
+								} else {
+									goldy = new Goldfish(new CantFly(), new Bipedal());
+								}
+								std::cout <<  "Goldfish is " << goldy->tryFlight() << std::endl;
+    							std::cout << goldy->tryWalking() << std::endl;
+    							goldy->setFood(dinner);
+								std::cout <<  "while he " << goldy->eat() << std::endl;
+    							
+  								break;
+  								
+  						case 4: // Bat
+  								if (fliesResponse == 'Y') {
+  									buddy = new Bat(new CanFly(), new Bipedal());
+								} else {
+									buddy = new Bat(new CantFly(), new Bipedal());
+								}
+								std::cout <<  "Bat is " << buddy->tryFlight() << std::endl;
+    							std::cout << buddy->tryWalking() << std::endl;
+    							buddy->setFood(dinner);
+								std::cout <<  "while he " << buddy->eat() << std::endl;
+    							
+  								break;
+					  }
+  					break;
+  			
+  			case 2: // quadpedal - four legs
+  					switch (creature ) {
+  						case 0: // Dog
+  								if (fliesResponse == 'Y') {
+  									riblet = new Dog(new CanFly(), new Quadpedal());
+								} else {
+									riblet = new Dog(new CantFly(), new Quadpedal());
+								}
+								std::cout <<  "Dog is " << riblet->tryFlight() << std::endl;
+    							std::cout << riblet->tryWalking() << std::endl;
+    							riblet->setFood(dinner);
+    							std::cout <<  "while he " << riblet->eat() << std::endl;
+								
+  								break;
+  						
+  						case 1: // Duck
+  								if (fliesResponse == 'Y') {
+  									flatfoot = new Duck(new CanFly(), new Quadpedal());
+								} else {
+									flatfoot = new Duck(new CantFly(), new Quadpedal());
+								}
+								std::cout <<  "Duck is " << flatfoot->tryFlight() << std::endl;
+    							std::cout << flatfoot->tryWalking() << std::endl;
+    							flatfoot->setFood(dinner);
+								std::cout <<  "while he " << flatfoot->eat() << std::endl;
+								
+  								break;
+  						
+  						case 2: // Snake
+  								if (fliesResponse == 'Y') {
+  									slither = new Snake(new CanFly(), new Quadpedal());
+								} else {
+									slither = new Snake(new CantFly(), new Quadpedal());
+								}
+								std::cout <<  "Snake is " << slither->tryFlight() << std::endl;
+    							std::cout << slither->tryWalking() << std::endl;
+    							slither->setFood(dinner);
+								std::cout <<  "while he " << slither->eat() << std::endl;
+    							
+  								break;
+  								
+  						case 3: // Goldfish
+  								if (fliesResponse == 'Y') {
+  									goldy = new Goldfish(new CanFly(), new Quadpedal());
+								} else {
+									goldy = new Goldfish(new CantFly(), new Quadpedal());
+								}
+								std::cout <<  "Goldfish is " << goldy->tryFlight() << std::endl;
+    							std::cout << goldy->tryWalking() << std::endl;
+    							goldy->setFood(dinner);
+								std::cout <<  "while he " << goldy->eat() << std::endl;
+    							
+  								break;
+  								
+  						case 4: // Bat
+  								if (fliesResponse == 'Y') {
+  									buddy = new Bat(new CanFly(), new Quadpedal());
+								} else {
+									buddy = new Bat(new CantFly(), new Quadpedal());
+								}
+								std::cout <<  "Bat is " << buddy->tryFlight() << std::endl;
+    							std::cout << buddy->tryWalking() << std::endl;
+    							buddy->setFood(dinner);
+								std::cout <<  "while he " << buddy->eat() << std::endl;
+    							
+  								break;
+					  }
+  					break;
+  			
+  			default: // default
+  					break;
 		  }
-		  
-		  
-		// Handle walking capability
-  		if (legs == 0) {  // no legs
-  			switch (creature) {
-  				case 0: { Animal* riblet4 = new Dog(new CantWalk());
-  					std::cout <<  "Dog is " << riblet4->tryWalking() << std::endl;
-					break;
-				  }
-  				
-  				case 1: { Animal* flatfoot4 = new Duck(new CantWalk());
-  					std::cout <<  "Duck is " << flatfoot4->tryWalking() << std::endl;
-					break;
-				  }
-
-  				case 2: { Animal* slither4 = new Snake(new CantWalk());
-  					std::cout <<  "Snake is " << slither4->tryWalking() << std::endl;
-					break;
-				  } 
-  				
-  				case 3: { Animal* goldy4 = new Goldfish(new CantWalk());
-  					std::cout <<  "Goldfish is " << goldy4->tryWalking() << std::endl;
-					break;
-				  } 
-				
-  				case 4: { Animal* buddy4 = new Bat(new CantWalk());
-  					std::cout <<  "Bat is " << buddy4->tryWalking() << std::endl;
-					break;
-				  } 
-  				
-  				default: {
-					break;
-				  }
-			  }
-		  } else if (legs == 1) {  // Bipedal
-		  	switch (creature) {
-  				case 0: { Animal* riblet4 = new Dog(new Bipedal());
-  					std::cout <<  "Dog is " << riblet4->tryWalking() << std::endl;
-					break;
-				  }
-  				
-  				case 1: { Animal* flatfoot4 = new Duck(new Bipedal());
-  					std::cout <<  "Duck is " << flatfoot4->tryWalking() << std::endl;
-					break;
-				  }
-
-  				case 2: { Animal* slither4 = new Snake(new Bipedal());
-  					std::cout <<  "Snake is " << slither4->tryWalking() << std::endl;
-					break;
-				  } 
-  				
-  				case 3: { Animal* goldy4 = new Goldfish(new Bipedal());
-  					std::cout <<  "Goldfish is " << goldy4->tryWalking() << std::endl;
-					break;
-				  } 
-				
-  				case 4: { Animal* buddy4 = new Bat(new Bipedal());
-  					std::cout <<  "Bat is " << buddy4->tryWalking() << std::endl;
-					break;
-				  } 
-  				
-  				default: {
-					break;
-				  }
-			  }
-		  	
-		  } else if (legs == 2) {  // Quadpedal
-		  	switch (creature) {
-  				case 0: { Animal* riblet4 = new Dog(new Quadpedal());
-  					std::cout <<  "Dog is " << riblet4->tryWalking() << std::endl;
-					break;
-				  }
-  				
-  				case 1: { Animal* flatfoot4 = new Duck(new Quadpedal());
-  					std::cout <<  "Duck is " << flatfoot4->tryWalking() << std::endl;
-					break;
-				  }
-
-  				case 2: { Animal* slither4 = new Snake(new Quadpedal());
-  					std::cout <<  "Snake is " << slither4->tryWalking() << std::endl;
-					break;
-				  } 
-  				
-  				case 3: { Animal* goldy4 = new Goldfish(new Quadpedal());
-  					std::cout <<  "Goldfish is " << goldy4->tryWalking() << std::endl;
-					break;
-				  } 
-				
-  				case 4: { Animal* buddy4 = new Bat(new Quadpedal());
-  					std::cout <<  "Bat is " << buddy4->tryWalking() << std::endl;
-					break;
-				  } 
-  				
-  				default: {
-					break;
-				  }
-			  }
-		  	
-		  }
-		  */
-		  // handle food
-		  
-  		
-  		
-  		
-  		
  
  		std::cout << "Would you like to create another animal? (Y|y/N|n)" << std::endl;
   		std::cin >> answer; 
@@ -330,13 +378,12 @@ int main(int argc, const char * argv[]) {
   		break;
  	}   
    
-	 // cleanup   
-	delete riblet;
-	delete flatfoot;
-	delete slither;
-	delete goldy;
-	delete buddy;
-	delete buddy2;
+   
+   delete riblet;
+   delete flatfoot;
+   delete slither;
+   delete goldy;
+   delete buddy;
 	
 	return 0;
 }
