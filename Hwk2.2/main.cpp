@@ -1,6 +1,7 @@
 /* main.cpp */
 //#include <iostream>
 #include <iostream>
+#include<limits>
 #include <fstream>
 #include <string>
 
@@ -27,10 +28,20 @@ int main(int argc, const char * argv[]) {
 	Animal* slither;	// Snake
 	Animal* goldy;		// Goldfish
 	Animal* buddy;		// Bat
+	
+	std::cout <<  "Demonstration of the Strategy Pattern in C++"  << std::endl;
+	std::cout <<  "This demonstration uses five animals"  << std::endl;
+	std::cout <<  "Dog, Duck, Snake, Goldfish, Bat"  << std::endl;
+	std::cout <<  "Press Enter to see their default settings"  << std::endl;
+	do 
+ 	{
+   		std::cout << '\n' << "Press any key to continue...";
+ 	} while (std::cin.get() != '\n');
 
-/*	// Riblet the Dog
+
+	// Riblet the Dog
     //Animal* riblet = new Dog(new CantFly(), new Quadpedal());
-    Animal* riblet = new Dog(new CantFly(), new Quadpedal());
+    riblet = new Dog(new CantFly(), new Quadpedal());
     riblet->setFood("filet mignon");
     
     std::cout <<  "Dog is " << riblet->tryFlight() << std::endl;
@@ -39,7 +50,7 @@ int main(int argc, const char * argv[]) {
     std::cout.put('\n');
     
     // Flatfoot the Duck
-    Animal* flatfoot = new Duck(new CanFly(), new Bipedal());
+    flatfoot = new Duck(new CanFly(), new Bipedal());
     flatfoot->setFood("corn");
     
     std::cout <<  "Duck is " << flatfoot->tryFlight() << std::endl;
@@ -48,7 +59,7 @@ int main(int argc, const char * argv[]) {
     std::cout.put('\n');
     
     // Slither the Snake
-    Animal* slither = new Snake(new CantFly(), new CantWalk());
+    slither = new Snake(new CantFly(), new CantWalk());
     slither->setFood("mice");
     
     std::cout <<  "Snake is " << slither->tryFlight() << std::endl;
@@ -57,7 +68,7 @@ int main(int argc, const char * argv[]) {
     std::cout.put('\n');
     
     // Goldy the Goldfish
-    Animal* goldy = new Goldfish(new CantFly(), new CantWalk());
+    goldy = new Goldfish(new CantFly(), new CantWalk());
     goldy->setFood("fishfood");
     
     std::cout <<  "Goldfish is " << goldy->tryFlight() << std::endl;
@@ -66,22 +77,31 @@ int main(int argc, const char * argv[]) {
     std::cout.put('\n');
     
     // Buddy the Bat
-    Animal* buddy = new Bat(new CanFly(), new Quadpedal());
-    //Animal* buddy2 = new Bat(new Quadpedal());
+    buddy = new Bat(new CanFly(), new Quadpedal());
     buddy->setFood("insects");
     
     std::cout <<  "Bat is " << buddy->tryFlight() << std::endl;
     std::cout << buddy->tryWalking() << std::endl;
     std::cout <<  "while he " << buddy->eat() << std::endl;
     std::cout.put('\n');
-    */
+    
+    std::cout <<  "Now it is your turn to create your own animals."  << std::endl;
+    std::cout <<  "You will be provided with numbered options."  << std::endl;
+    std::cout <<  "Please use the associated numbers in your reponses"  << std::endl;
+	
+	do 
+ 	{
+   		std::cout << '\n' << "Press any key to continue...";
+ 	} while (std::cin.get() != '\n');
+    
        
-    // get inputs from user
+    // now get inputs from user
     
     // looping variables
     int creature, legs, food;
     char flies, answer, fliesResponse;
     std::string object, dinner;
+    bool error = false;
     
     // main.hpp loop
  	while (true)
@@ -92,11 +112,24 @@ int main(int argc, const char * argv[]) {
  			std::cout << "Dog(0) Duck(1) Snake(2) Goldfish(3) Bat(4): " << std::endl;
   			std::cin >> creature;
   			
-  			if ((creature >= 0) && (creature <= 4)) {
+  			// check non-numeric entry
+  			while(std::cin.fail())
+			{
+				error = true;
+            	std::cout << "Invalid Entry - Enter number [0-4]" << std::endl;
+				std::cin.clear();
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+				std::cout << "Invalid input. Try again. " << std::endl;
+			}
+			
+			std::cout << "error =" << error << std::endl;
+  			
+  			if ((creature >= 0) && (creature <= 4) && (error==false)) {
   				object = animals[creature];
   				break;
 			}
 			else {
+				error = false;
 				std::cout.put('\n');
 				std::cout << "Invalid selection, please try again" << std::endl;
 			}
@@ -108,11 +141,23 @@ int main(int argc, const char * argv[]) {
     	std::cout << "None(0), Two(1), Four(2)" << std::endl;
   		std::cin >> legs; 
   		
+  		// check non-numeric entry
+  		while(std::cin.fail())
+		{
+			error = true;
+            std::cout << "Invalid Entry - Enter number [0-2]" << std::endl;
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			std::cout << "Invalid input. Try again. " << std::endl;
+		}
+  		
   		// test input
-  		if ((legs >= 0) && (legs <= 2)) {
+  		if ((legs >= 0) && (legs <= 2) && (error==false)) {
+  			std::cout << "in: (legs >= 0) && (legs <= 2) legs =" << legs << std::endl;
   				break;
 			}
 			else {
+				error = false;
 				std::cout.put('\n');
 				std::cout << "Invalid selection, please try again" << std::endl;
 			}
@@ -378,7 +423,7 @@ int main(int argc, const char * argv[]) {
   		break;
  	}   
    
-   
+   // general cleanup
    delete riblet;
    delete flatfoot;
    delete slither;
