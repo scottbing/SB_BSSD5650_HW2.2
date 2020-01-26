@@ -21,7 +21,7 @@ int main(int argc, const char * argv[]) {
 	std::string animals[5] = { "Dog", "Duck", "Snake", "Goldfish", "Bat" }; 
 	std::string foods[5] = { "mice", "corn", "filet mignon", "fishfood", "insects" }; 
 
-	/*// Riblet the Dog
+	// Riblet the Dog
     Animal* riblet = new Dog(new CantFly());
     Animal* riblet2 = new Dog(new Quadpedal());
     riblet->setFood("filet mignon");
@@ -69,7 +69,7 @@ int main(int argc, const char * argv[]) {
     std::cout <<  "Bat is " << buddy->tryFlight() << std::endl;
     std::cout << buddy2->tryWalking() << std::endl;
     std::cout <<  "while he " << buddy->eat() << std::endl;
-    std::cout.put('\n');*/
+    std::cout.put('\n');
     
     // looping variables
     int creature, legs, food;
