@@ -85,13 +85,19 @@ int main(int argc, const char * argv[]) {
     std::cout <<  "while he " << buddy->eat() << std::endl;
     std::cout.put('\n');
     
+    do 
+ 	{
+   		std::cout << '\n' << "Press the Enter key to continue...";
+ 	} while (std::cin.get() != '\n');
+    
+    system("cls");
     std::cout <<  "Now it is your turn to create your own animals."  << std::endl;
     std::cout <<  "You will be provided with numbered options."  << std::endl;
     std::cout <<  "Please use the associated numbers in your reponses"  << std::endl;
 	
 	do 
  	{
-   		std::cout << '\n' << "Press any key to continue...";
+   		std::cout << '\n' << "Press the Enter key to continue...";
  	} while (std::cin.get() != '\n');
     
        
@@ -122,7 +128,6 @@ int main(int argc, const char * argv[]) {
 				std::cout << "Invalid input. Try again. " << std::endl;
 			}
 			
-			std::cout << "error =" << error << std::endl;
   			
   			if ((creature >= 0) && (creature <= 4) && (error==false)) {
   				object = animals[creature];
@@ -153,7 +158,6 @@ int main(int argc, const char * argv[]) {
   		
   		// test input
   		if ((legs >= 0) && (legs <= 2) && (error==false)) {
-  			std::cout << "in: (legs >= 0) && (legs <= 2) legs =" << legs << std::endl;
   				break;
 			}
 			else {
@@ -170,12 +174,23 @@ int main(int argc, const char * argv[]) {
  		std::cout << "mice(0) corn(1) filet mignon(2) fishfood(3) insects(4): " << std::endl;
   		std::cin >> food; 
   		
+  			// check non-numeric entry
+  		while(std::cin.fail())
+		{
+			error = true;
+            std::cout << "Invalid Entry - Enter number [0-2]" << std::endl;
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			std::cout << "Invalid input. Try again. " << std::endl;
+		}
+  		
   		// test input
-  		if ((food >= 0) && (food <= 4)) {
+  		if ((food >= 0) && (food <= 4) && (error==false)) {
   				dinner = foods[food];
   				break;
 			  }
 			else {
+				error = false;
 				std::cout.put('\n');
 				std::cout << "Invalid selection, please try again" << std::endl;
 			}
