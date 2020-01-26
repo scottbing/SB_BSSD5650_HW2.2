@@ -22,16 +22,16 @@ int main(int argc, const char * argv[]) {
 	std::string foods[5] = { "mice", "corn", "filet mignon", "fishfood", "insects" }; 
 
 	// Riblet the Dog
-    Animal* riblet = new Dog(new CantFly());
-    Animal* riblet2 = new Dog(new Quadpedal());
+    Animal* riblet = new Dog(new CantFly(), new Quadpedal());
+    //Animal* riblet2 = new Dog(new Quadpedal());
     riblet->setFood("filet mignon");
     
     std::cout <<  "Dog is " << riblet->tryFlight() << std::endl;
-    std::cout << riblet2->tryWalking() << std::endl;
+    std::cout << riblet->tryWalking() << std::endl;
     std::cout <<  "while he " << riblet->eat() << std::endl;
     std::cout.put('\n');
     
-    // Flatfoot the Duck
+ /*   // Flatfoot the Duck
     Animal* flatfoot = new Duck(new CanFly());
     Animal* flatfoot2 = new Duck(new Bipedal());
     flatfoot->setFood("corn");
@@ -70,6 +70,9 @@ int main(int argc, const char * argv[]) {
     std::cout << buddy2->tryWalking() << std::endl;
     std::cout <<  "while he " << buddy->eat() << std::endl;
     std::cout.put('\n');
+    
+    
+    // get inputs from user
     
     // looping variables
     int creature, legs, food;
@@ -147,7 +150,10 @@ int main(int argc, const char * argv[]) {
 			}
 		 }
 		 
-  
+		 
+		 
+  		// process inputs
+  		std::cout.put('\n');
   	
   		// Handle flying capability
   		if (fliesResponse == 'Y') {
@@ -313,6 +319,9 @@ int main(int argc, const char * argv[]) {
 			  }
 		  	
 		  }
+		  
+		  // handle food
+		  
   		
   		
   		
@@ -325,9 +334,8 @@ int main(int argc, const char * argv[]) {
   		break;
  	}   
    
-/*	 // cleanup   
+	 // cleanup   
 	delete riblet;
-	delete riblet2;
 	delete flatfoot;
 	delete flatfoot2;
 	delete slither;

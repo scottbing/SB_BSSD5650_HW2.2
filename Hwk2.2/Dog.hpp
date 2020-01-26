@@ -9,14 +9,14 @@
 
 class Dog: virtual public Animal {
 public:
-    
-    Dog(Flys* flightType) {
-        this->setFly(flightType);
-    }
-    
-    Dog(Walks* walkingType) {
-        this->setWalk(walkingType);
-    }
+	
+	Dog(Flys* flightType, Walks* walkingType) {
+		
+	this->setFly(flightType);
+	
+	this->setWalk(walkingType); 
+	
+	}
     
     void speak() override {std::cout << "Woof" << std::endl; };
     //void eat() override {std::cout << "Ate Kibble" << std::endl;};
