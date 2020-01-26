@@ -10,13 +10,13 @@
 class Duck:public Animal {
 public:
 	
-	Duck(Flys* flightType) {
-        this->setFly(flightType);
-    }
-    
-    Duck(Walks* walkingType) {
-        this->setWalk(walkingType);
-    }
+	Duck(Flys* flightType, Walks* walkingType) {
+		
+	this->setFly(flightType);
+	
+	this->setWalk(walkingType); 
+	
+	}
     
     void speak(){std::cout << "Ate Corn" << std::endl;};
     //void eat(){std::cout << "Ate Corn" << std::endl;};

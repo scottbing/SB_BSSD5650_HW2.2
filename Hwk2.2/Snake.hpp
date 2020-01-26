@@ -10,14 +10,13 @@
 class Snake: virtual public Animal {
 public:
 
-	Snake(Flys* flightType) {
-        this->setFly(flightType);
-    }
-
-    Snake(Walks* walkingType) {
-        this->setWalk(walkingType);
-    }
-
+	Snake(Flys* flightType, Walks* walkingType) {
+		
+	this->setFly(flightType);
+	
+	this->setWalk(walkingType); 
+	
+	}
     void speak(){std::cout << "Ate Corn" << std::endl;};
     //void eat(){std::cout << "Ate Corn" << std::endl;};
     void move() override {std::cout << "walked on two webbed feet" << std::endl;};

@@ -10,14 +10,13 @@
 class Bat: virtual public Animal {
 public:
 
-    Bat(Flys* flightType) {
-        this->setFly(flightType);
-    }
-
-    Bat(Walks* walkingType) {
-        this->setWalk(walkingType);
-    }
-
+    Bat(Flys* flightType, Walks* walkingType) {
+		
+	this->setFly(flightType);
+	
+	this->setWalk(walkingType); 
+	
+	}
     void speak() override {std::cout << "Woof" << std::endl; };
     //void eat() override {std::cout << "Ate Kibble" << std::endl;};
     void move() override {std::cout << "walked on all fours" << std::endl;};

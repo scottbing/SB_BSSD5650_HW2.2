@@ -10,13 +10,13 @@
 class Goldfish:public Animal {
 public:
 
-	Goldfish(Flys* flightType) {
-        this->setFly(flightType);
-    }
-
-    Goldfish(Walks* walkingType) {
-        this->setWalk(walkingType);
-    }
+	Goldfish(Flys* flightType, Walks* walkingType) {
+		
+	this->setFly(flightType);
+	
+	this->setWalk(walkingType); 
+	
+	}
 
     void speak(){std::cout << "Ate Corn" << std::endl;};
     //void eat(){std::cout << "Ate Corn" << std::endl;};

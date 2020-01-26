@@ -23,7 +23,6 @@ int main(int argc, const char * argv[]) {
 
 	// Riblet the Dog
     Animal* riblet = new Dog(new CantFly(), new Quadpedal());
-    //Animal* riblet2 = new Dog(new Quadpedal());
     riblet->setFood("filet mignon");
     
     std::cout <<  "Dog is " << riblet->tryFlight() << std::endl;
@@ -31,43 +30,40 @@ int main(int argc, const char * argv[]) {
     std::cout <<  "while he " << riblet->eat() << std::endl;
     std::cout.put('\n');
     
- /*   // Flatfoot the Duck
-    Animal* flatfoot = new Duck(new CanFly());
-    Animal* flatfoot2 = new Duck(new Bipedal());
+    // Flatfoot the Duck
+    Animal* flatfoot = new Duck(new CanFly(), new Bipedal());
     flatfoot->setFood("corn");
     
     std::cout <<  "Duck is " << flatfoot->tryFlight() << std::endl;
-    std::cout << flatfoot2->tryWalking() << std::endl;
+    std::cout << flatfoot->tryWalking() << std::endl;
     std::cout <<  "while he " << flatfoot->eat() << std::endl;
     std::cout.put('\n');
     
     // Slither the Snake
-    Animal* slither = new Snake(new CantFly());
-    Animal* slither2 = new Snake(new CantWalk());
+    Animal* slither = new Snake(new CantFly(), new CantWalk());
     slither->setFood("mice");
     
     std::cout <<  "Snake is " << slither->tryFlight() << std::endl;
-    std::cout << slither2->tryWalking() << std::endl;
+    std::cout << slither->tryWalking() << std::endl;
     std::cout <<  "while he " << slither->eat() << std::endl;
     std::cout.put('\n');
     
     // Goldy the Goldfish
-    Animal* goldy = new Goldfish(new CantFly());
-    Animal* goldy2 = new Goldfish(new CantWalk());
+    Animal* goldy = new Goldfish(new CantFly(), new CantWalk());
     goldy->setFood("fishfood");
     
     std::cout <<  "Goldfish is " << goldy->tryFlight() << std::endl;
-    std::cout << goldy2->tryWalking() << std::endl;
+    std::cout << goldy->tryWalking() << std::endl;
     std::cout <<  "while he " << goldy->eat() << std::endl;
     std::cout.put('\n');
     
     // Buddy the Bat
-    Animal* buddy = new Bat(new CanFly());
-    Animal* buddy2 = new Bat(new Quadpedal());
+    Animal* buddy = new Bat(new CanFly(), new Quadpedal());
+    //Animal* buddy2 = new Bat(new Quadpedal());
     buddy->setFood("insects");
     
     std::cout <<  "Bat is " << buddy->tryFlight() << std::endl;
-    std::cout << buddy2->tryWalking() << std::endl;
+    std::cout << buddy->tryWalking() << std::endl;
     std::cout <<  "while he " << buddy->eat() << std::endl;
     std::cout.put('\n');
     
@@ -155,7 +151,7 @@ int main(int argc, const char * argv[]) {
   		// process inputs
   		std::cout.put('\n');
   	
-  		// Handle flying capability
+  	/*	// Handle flying capability
   		if (fliesResponse == 'Y') {
   			switch (creature) {
   				case 0: { Animal* riblet3 = new Dog(new CanFly());
@@ -319,7 +315,7 @@ int main(int argc, const char * argv[]) {
 			  }
 		  	
 		  }
-		  
+		  */
 		  // handle food
 		  
   		
@@ -337,13 +333,10 @@ int main(int argc, const char * argv[]) {
 	 // cleanup   
 	delete riblet;
 	delete flatfoot;
-	delete flatfoot2;
 	delete slither;
-	delete slither2;
 	delete goldy;
-	delete goldy2;
 	delete buddy;
-	delete buddy2;*/
+	delete buddy2;
 	
 	return 0;
 }
