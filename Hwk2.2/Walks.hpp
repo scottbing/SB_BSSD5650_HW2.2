@@ -29,7 +29,7 @@ public:
 
 class CantWalk:virtual public Walks {
 public:
-    std::string walk() { return "cannot walk"; }
+    std::string walk() { return "cannot walk no legs"; }
 };
 
 #endif /* Walks_hpp */
